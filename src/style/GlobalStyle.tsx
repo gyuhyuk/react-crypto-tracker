@@ -62,7 +62,6 @@ body {
 }
 a {
   text-decoration:none;
-  color:inherit;
 }
 `;
 export default GlobalStyle;
