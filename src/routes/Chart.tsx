@@ -18,8 +18,12 @@ interface ChartProps {
 }
 
 const Chart = ({ coinId }: ChartProps) => {
-  const { isLoading, data } = useQuery<IHistorical[]>(["ohlcv", coinId], () =>
-    fetchCoinHistory(coinId)
+  const { isLoading, data } = useQuery<IHistorical[]>(
+    ["ohlcv", coinId],
+    () => fetchCoinHistory(coinId),
+    {
+      // refetchInterval: 10000, 주기적인 새로고침 (많이 사용시 api 사용 못함)
+    }
   );
   return (
     <div>
